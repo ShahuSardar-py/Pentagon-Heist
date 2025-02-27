@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.DS_Store
+environment.yml   # Optional: if you don't want to track your environment file
