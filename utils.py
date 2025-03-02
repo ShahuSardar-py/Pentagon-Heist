@@ -41,7 +41,7 @@ def generate_intro():
     return intro or "The vault doors loom before you..."  # Fallback 
 
 def clean_json_response(text):
-    """Remove markdown formatting and extract pure JSON"""
+
     text = text.replace('```json', '').replace('```', '').strip()
     return text
 
