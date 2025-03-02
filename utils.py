@@ -30,16 +30,15 @@ def AIresponse(prompt):
 
 def generate_intro():
     prompt = (
-        "Create a thrilling heist introduction that:\n"
-        "1. Sets the scene at the Pentagon.\n"
-        "2. Mentions one specific security measure.\n"
-        "3. Hints at a potential weakness.\n"
+        "Greet the user who is actually a game character- a heist master. Call the user 'Commander'. Explain that they are going to make a heist of a very important code at PENTAGON!\n"
+        "1. Set the scene at the Pentagon.\n"
+        
+        
         "Keep it under 100 words with dramatic flair.\n\n"
-        "Example:\n"
-        "\"The Pentagon's Quantum Encryption Vault glows ominously. Rumors whisper of a legacy system vulnerability that might be exploited...\""
+        
     )
     intro = AIresponse(prompt)
-    return intro or "The vault doors loom before you..."  # Fallback if API fails
+    return intro or "The vault doors loom before you..."  # Fallback 
 
 def clean_json_response(text):
     """Remove markdown formatting and extract pure JSON"""
@@ -50,12 +49,13 @@ def get_challenge(attempt, intro_context):
     prompt = (
         f"Based on this heist introduction:\n{intro_context}\n\n"
         f"Create security challenge #{attempt} with:\n"
-        "1. Description referencing a specific Pentagon security measure\n"
-        "2. 3 tool options (one correct, two decoys)\n"
+        "1. Description referencing a specific Pentagon security measure as a senario for text based game. It can be simple , funny & absurd, or should be a simple GIT command question, or should be a simple equation to solve (ex. 5x+4=8)\n"
+        "2. 3 options (one correct, two decoys)\n"
         "3. Explicit correct option\n"
-        "4. Failure consequence\n"
+        "4. Failure consequence relating to the wrong option\n"
         "5. Code value (format: WORD-WORD-###)\n"
         "6. Subtle hint related to introduction\n\n"
+        "keep the langauage very simple and understandable\n"
         "Output STRICT JSON ONLY (no markdown) like:\n"
         "{\"description\": \"...\", \"options\": [...], \"correct\": \"...\", \"failure\": \"...\", \"Code\": \"...\", \"hint\": \"...\"}"
     )

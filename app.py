@@ -43,9 +43,11 @@ class PentagonHeist:
     def mainChamber(self):
         self.clear_screen()
         self.typewriter(f"{Fore.GREEN}╔══════════════════════════════════╗")
-        self.typewriter(f"║    FINAL CODE DECRYPTED: {Fore.YELLOW}{self.Code}    ║")
-        self.typewriter(f"╚══════════════════════════════════╝{Style.RESET_ALL}")
+        self.typewriter(f"            ║ FINAL CODE DECRYPTED: {Fore.YELLOW}{self.Code}    ║")
+        self.typewriter(f"            ╚══════════════════════════════════╝{Style.RESET_ALL}")
         self.typewriter(f"\n{Fore.CYAN}Total Score: {self.bounty}{Style.RESET_ALL}")
+        self.typewriter("\nCongratulations Commander! You did it!", Fore.MAGENTA)
+        
         self.typewriter("\nYou vanish into the night... the perfect digital thief", Fore.MAGENTA)
     
     # main function for running the game
@@ -54,7 +56,7 @@ class PentagonHeist:
         self.typewriter(intro, color=Fore.CYAN)
         
         # New line added: Wait for the user to press Enter to start the mission.
-        input("PRESS ENTER TO START THE MISSION")
+        input("PRESS ENTER TO INFILTERATE")
     
         for attempt in range(1, self.gates + 1):
             challenge = get_challenge(attempt, intro)
